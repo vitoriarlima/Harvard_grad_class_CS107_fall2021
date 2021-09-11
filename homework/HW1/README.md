@@ -10,15 +10,15 @@ Doing lists
 
 1. First item in list
 
-⋅⋅⋅Writing things inside every list point. Writing things inside every list point. Writing things inside every list point. 
+⋅⋅⋅Writing things inside every list point. Writing things inside every list point. Writing things inside every list point.            ^k^e   ^k^e   ^k^e
 
 2. Second item in list
 
-⋅⋅⋅Writing things inside every list point. Writing things inside every list point. Writing things inside every list point. 
+⋅⋅⋅Writing things inside every list point. Writing things inside every list point. Writing things inside every list point. ^k^e   ^k^e   ^k^e
 
 3. Third item in list
 
-⋅⋅⋅Writing things inside every list point. Writing things inside every list point. Writing things inside every list point. 
+⋅⋅⋅Writing things inside every list point. Writing things inside every list point. Writing things inside every list point. ^k^e   ^k^e   ^k^e
 
 Doing a table
 
