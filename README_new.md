@@ -1,6 +1,3 @@
-CS 107
-
-
 # Content
 
 Bullet point list:
@@ -11,3 +8,4 @@ Bullet point list:
 
 
 
+ 
