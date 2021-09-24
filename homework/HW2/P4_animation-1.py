@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 
 # PROBLEM 4_animation
 
