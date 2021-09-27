@@ -12,9 +12,9 @@ x=0
 radian = np.pi/180
 
 #
-plt.ion()
-plt.figure(figsize=(6,6))
-plt.title("My digital clock running")
+#plt.ion()
+#plt.figure(figsize=(6,6))
+#plt.title("My digital clock running")
 
 #running for 10 seconds
 while x <10:
@@ -72,12 +72,12 @@ while x <10:
     # Plot the clock
 
     #plt.figure()
-    #plt.title("My digital clock running")
-    plt.axis([xmin, xmax, ymin, ymax])
+    plt.title("My digital clock running")
     plt.plot([0,x_hour],[0, y_hour], label= "Hour hand")
     plt.plot([0,x_minute],[0, y_minute], label= "Minute hand")
     plt.plot([0,x_second],[0, y_second], label= "Second hand")
-    plt.legend()
+    #plt.legend()
+    plt.axis([xmin, xmax, ymin, ymax])
     #plt.show()
 
     
@@ -87,9 +87,9 @@ while x <10:
     plt.pause(1)
 
     #
-    #plt.cla()
+    plt.cla()
     #fig.canvas.flush_events()
 
 
     
-    clear_output(wait=True)
+    #clear_output(wait=True)
