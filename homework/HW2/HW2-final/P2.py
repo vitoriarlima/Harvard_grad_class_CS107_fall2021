@@ -17,7 +17,7 @@ dna_list= list(input_string)
 
 # My two test cases are:
 # a string with a letter not included in the above
-test = test = "TTACCZ"
+test =  "TTACCZ"
 # an empty string
 test_list= list(test)
 empty_test = " "
