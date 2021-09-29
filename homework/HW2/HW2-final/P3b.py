@@ -33,3 +33,8 @@ wd(5)
 # Explanation:
 # It is not working because balance here is not a nonlocal variable.
 # Here I can reference it, but still I am not updating it, which is what I want.
+
+print("Explanation:")
+print("It is not working because balance here is not a nonlocal variable.")
+print("Here I can reference it, but still I am not updating it, which is what I want.")
+

@@ -40,3 +40,7 @@ print(wd(5))
 # Hence the first withdrawal will show 8 and the
 # second withdrawal will show 5, as if they started
 # from two separate bank accounts with both initial balance of 10.
+
+print("Explaining why not it's working:")
+print("The reason why both withdrawals are not updating is that the wd is referring only to the first balance amount on top, i.e. the amount of balance = 10.")
+print(" Meaning, that it is not updating the balance. Hence the first withdrawal will show 8 and the second withdrawal will show 5, as if they started from two separate bank accounts with both initial balance of 10.")

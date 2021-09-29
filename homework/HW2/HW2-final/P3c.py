@@ -34,3 +34,6 @@ print(wd(5))
 #Explain:
 # Now this is working because we declared balance as non local and
 # it's going to update it every time.
+
+print("Explaining:")
+print("Now this is working because we declared balance as non local and it's going to update it every time.")
