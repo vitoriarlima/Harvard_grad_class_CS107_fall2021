@@ -31,7 +31,7 @@ def dna_complement(input_dna):
         output_dna_complement= list()
         dna_list= list(input_dna)
         if len(dna_list) == len(empty_list):
-            return "None"
+            return None
         else: 
             for i in dna_list:
                 if i == "A":
@@ -51,8 +51,9 @@ def dna_complement(input_dna):
                 elif i == "C":
                     output_dna_complement.append("G")
                 else: 
-                    return print("none")
-        return print(output_dna_complement)
+                    return None
+        output_dna_complement= ''.join(output_dna_complement)
+        return output_dna_complement
 
 #These are my test cases
 input_string = "TTAAAG"
@@ -60,6 +61,6 @@ test = "TTACCZ"
 empty_test = " "
 
 # Here I am calling the function with the inputs
-dna_complement(input_string)
-dna_complement(test)
-dna_complement(empty_test)
+print(dna_complement(input_string))
+print(dna_complement(test))
+print(dna_complement(empty_test))
