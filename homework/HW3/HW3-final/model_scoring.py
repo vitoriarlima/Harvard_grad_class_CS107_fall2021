@@ -32,6 +32,7 @@ for model in models:
     r_2 = model.score(X_test, y_test)
     r_2_list.append(r_2)
 
+print(r_2_list)
 
 y_pred_train = model.predict(X_train)
 y_pred_train

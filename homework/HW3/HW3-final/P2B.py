@@ -6,3 +6,6 @@ test = reg.Regression()
 #print(example().params)
 print(dir(test))
 
+print(dir(reg))
+
+
