@@ -58,33 +58,44 @@ class LinearRegression(Regression):
 
 
 ######## PART D
+######## PART D
 
 class RidgeRegression(LinearRegression):
      
     def __init__(self):
         super().__init__()
         
-    def set_params(self, **kwargs): #keyword arguments #created new variables that can be used anywhere in ridge regression
-        
-        for k, v in kwargs.items():
-            setattr(self, k, v)
+    def set_params(self, **kwargs): 
+        #keyword arguments #created new variables that can be used anywhere in ridge regression
+
+        ##for k, v in kwargs.items():
+        ##    setattr(self, k, v)
+        for value in kwargs.values():
+            self.alpha = value 
         
         
     def fit(self, X, y):
-        rows = X.shape[0]
-        new_col = np.ones((rows, 1))
-        #hstack, vstack, concatenate, np.c_
-        X = np.hstack((new_col, X))
+      
     
         for v in vars(self).keys():
             if v !='params':
                 alpha = vars(self)[v]
                 
+        scale = 1/ np.sqrt(np.sum((X-np.mean(X,axis=0))**2, axis=0))
+        X=X*scale
+        bias = np.ones((X.shape[0], 1))
+        X = np.hstack((bias,X))
+        
+        
         
         #alpha = self.set_params()
-        G = alpha * np.identity(X.shape[1])
+        G = self.alpha * np.identity(X.shape[1])
+        G[0,0] = 0
         
-        beta = np.linalg.pinv(X.T@X + G.T@G)@(X.T@y)
+        beta = np.linalg.inv(X.T@X + G.T@G)@(X.T@y)
+        intercept_ridge = beta[0]
+        coeff_ridge = beta[1:]*scale
         
-        self.params['intercept']= beta[0]
-        self.params['coefficients']= beta[1:]
+        self.params['intercept']= intercept_ridge
+        self.params['coefficients']= coeff_ridge
+    
