@@ -47,8 +47,8 @@ if __name__ == "__main__":
     a = 2.0
     x = AutoDiffToy(a)
     
-    alpha = 3.0
-    beta = 5.0
+    alpha = 2.0
+    beta = 3.0
     
     f1 = alpha * x + beta
     f2 = x * alpha + beta
