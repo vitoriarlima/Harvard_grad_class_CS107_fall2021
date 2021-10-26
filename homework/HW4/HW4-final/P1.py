@@ -63,15 +63,19 @@ plt.show()
 
 print("Answer to Q-a:")
 print("Which value of h most closely approximates the true derivative? What happens for values of h that are too small? What happens for values of h that are too large?")
+
 print("To the values of h that are too small, the derivative with that stepsize \
-h is going to be choppy and not smooth enough as the real derivative. Whereas for the h that are too big, \
+h is going to be choppy and not smooth enough as the real derivative because of truncation error. Whereas for the h that are too big, \
 we get a derivative that is smaller than the real one, i.e. the stepsize is too big and the derivative is \
 an underestimation of the real derivative. \
 I have found the stepsize of a*10^_-7 to be the value that most closely approximates the true derivative")
 
 print("Answer to Q-b:")
 print("Q-b: How does automatic differentiation address these problems?")
-print("Given that it takes a lot of computing power to find the entire curve of derivatives for a function f(x) with a given stepsize h (where the smallest usually the better, i.e. even more computation power needed), we can still use the 'optimal' h but do the derivative only at the point we deem necessary. AD helps us save computing power to get only the point derivative that we need.")
+print("Given that it takes a lot of computing power to find the entire curve \
+of derivatives for a function f(x) with a given stepsize h (where the smallest usually the \
+better, i.e. even more computation power needed), we can still use the 'optimal' h but do the derivative \
+only at the point we deem necessary. AD helps us save computing power to get only the point derivative that we need.")
 
 
 
