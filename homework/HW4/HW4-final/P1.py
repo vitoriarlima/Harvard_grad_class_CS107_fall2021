@@ -72,7 +72,17 @@ I have found the stepsize of a*10^_-7 to be the value that most closely approxim
 
 print("Answer to Q-b:")
 print("Q-b: How does automatic differentiation address these problems?")
-print("Given that it takes a lot of computing power to find the entire curve \
+
+print("The way that AD addresses this is to make the calculations of the derivative more easy  \
+i.e. broken down in more parts. What AD does is to use basic arithmetic operations (additiona, multiplication, division) \
+on any function (like functions like log, sin and so on) in order to break any complex function into smaller less complex ones. \
+What is hapening is that AD breaks down the big complex function into these primitive parts where the computation of\
+the derivative is easier to compute. Then the derivative of the complex function will be the combination of\
+all these smaller parts' derivatives.\
+Particularly, AD uses the chain rule as principle to evaluate  derivatives. Consequently, AD\
+can guarantee a very precise computation of derivatives.")
+
+print("Additionally, given that it takes a lot of computing power to find the entire curve \
 of derivatives for a function f(x) with a given stepsize h (where the smallest usually the \
 better, i.e. even more computation power needed), we can still use the 'optimal' h but do the derivative \
 only at the point we deem necessary. AD helps us save computing power to get only the point derivative that we need.")
