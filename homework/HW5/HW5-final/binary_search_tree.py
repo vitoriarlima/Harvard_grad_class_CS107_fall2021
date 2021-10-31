@@ -76,7 +76,9 @@ print(greektoroman.put('Athena',    'Minerva'))
 print(greektoroman.put('Eros',      'Cupid'))
 print(greektoroman.put('Aphrodite', 'Venus'))
 print(greektoroman.get('Eros'))
+
+
+print(greektoroman)
+
 print(greektoroman.get('Vitoria'))
 print(greektoroman.get('Lala'))
-
-print (greektoroman)

@@ -44,14 +44,13 @@ class Animal:
         self._species = into
 
 
->>> dog = Animal('Fido', 'dog')
->>> vars(dog)
+dog = Animal('Fido', 'dog')
+print(vars(dog))
 
->>> dog = Animal('Fido', 'dog')
->>> dog.species
+dog = Animal('Fido', 'dog')
+print(dog.species)
+dog.species = 'cat'
+print(dog.species)
 
->>> dog.species = 'cat'
->>> dog.species
-
->>> dog.species = 'TheThing'
-
+dog.species = 'TheThing'
+print(dog.species)
