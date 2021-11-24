@@ -130,7 +130,7 @@ class HeapPriorityQueue(PriorityQueue): #min proprity, min heap
 
 import heapq
 
-class PythonHeapPriorityQueue(PriorityQueue): #min proprity, min heap
+class PythonHeapPriorityQueue(PriorityQueue): 
     def __init__(self, max_size):
         super().__init__(max_size)
         
