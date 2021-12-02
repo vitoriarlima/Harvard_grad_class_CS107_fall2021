@@ -8,6 +8,50 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.datasets import load_breast_cancer
 
+
+    
+###################################################
+
+#### PART A
+
+db = sqlite3.connect('regression.sqlite')
+cursor = db.cursor()
+cursor.execute("DROP TABLE IF EXISTS model_params")
+cursor.execute("DROP TABLE IF EXISTS model_coefs")
+cursor.execute("DROP TABLE IF EXISTS model_results")
+
+
+cursor.execute('''CREATE TABLE model_params (
+               id INTEGER,
+               desc TEXT,
+               param_name TEXT,
+               value FLOAT)''')
+
+cursor.execute('''CREATE TABLE model_coefs (
+               id INTEGER,
+               desc TEXT,
+               feature_name TEXT,
+               value FLOAT)''')
+
+cursor.execute('''CREATE TABLE model_results (
+               id INTEGER,
+               desc TEXT,
+               train_score FLOAT,
+               test_score FLOAT)''')
+
+db.commit() # Commit changes to the database
+
+###################################################
+
+
+# Load data
+data = load_breast_cancer()
+X = pd.DataFrame(data.data, columns=data.feature_names)
+y = data.target
+
+# Split into train and test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=87)
+
 ###################################################
 # Part B Function
 def save_to_database(model_id, model_desc, db, model, X_train, X_test,y_train, y_test):
@@ -45,43 +89,6 @@ def save_to_database(model_id, model_desc, db, model, X_train, X_test,y_train, y
                   VALUES (?, ?, ?, ?)''', (int(model_id),model_desc,train_score,test_score))
     
     db.commit()
-    
-###################################################
-db = sqlite3.connect('regression.sqlite')
-cursor = db.cursor()
-cursor.execute("DROP TABLE IF EXISTS model_params")
-cursor.execute("DROP TABLE IF EXISTS model_coefs")
-cursor.execute("DROP TABLE IF EXISTS model_results")
-
-
-cursor.execute('''CREATE TABLE model_params (
-               id INTEGER,
-               desc TEXT,
-               param_name TEXT,
-               value FLOAT)''')
-
-cursor.execute('''CREATE TABLE model_coefs (
-               id INTEGER,
-               desc TEXT,
-               feature_name TEXT,
-               value FLOAT)''')
-
-cursor.execute('''CREATE TABLE model_results (
-               id INTEGER,
-               desc TEXT,
-               train_score FLOAT,
-               test_score FLOAT)''')
-
-db.commit() # Commit changes to the database
-
-# Load data
-data = load_breast_cancer()
-X = pd.DataFrame(data.data, columns=data.feature_names)
-y = data.target
-
-# Split into train and test
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=87)
-
 
 ###################################################
 ## Part B adding to database
@@ -108,6 +115,10 @@ penalized_model = LogisticRegression(solver='liblinear', penalty='l1', random_st
 penalized_model.fit(X_train, y_train)
 save_to_database(3, 'L1 penalty model', db, penalized_model, X_train, X_test, y_train, y_test)
 
+###################################################
+
+
+
 # see data base
 def viz_tables(cols, query):
     q = cursor.execute(query).fetchall()
@@ -133,10 +144,23 @@ cursor.execute(query)
 val_score = cursor.fetchall()[0][0]
 print("Best validation score:",val_score, '\n')
 
+###################################################
+
+
+
 # Query the coefs
 query = '''SELECT feature_name,value FROM model_coefs WHERE id == 3'''
 cursor.execute(query)
-print("Coefficient list:",cursor.fetchall(), '\n')
+val_score = cursor.fetchall()
+for i in val_score:
+    print("{}: {}".format(i[0], i[1]))
+print()
+
+#print("Coefficient list:",cursor.fetchall(), '\n')
+
+###################################################
+
+
 
 # Dummy fit
 test_model = LogisticRegression(solver='liblinear')
